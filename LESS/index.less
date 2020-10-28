@@ -1,0 +1,320 @@
+@import "/LESS/variables.less";
+
+html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+        display: block;
+    }
+    body {
+        line-height: 1;
+    }
+    ol, ul {
+        list-style: none;
+    }
+    blockquote, q {
+        quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    html {
+        font-size: 62.5%;
+    }
+
+    .hero-img {
+        width: 100%;
+      }
+
+      .main-content, footer {
+        font-family: @fontFamilySec;
+        text-align: left;
+    }
+    
+    header{
+        font-family: @fontFamilyPri;
+        font-weight: 900;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .container {
+        max-width: 100%;
+        margin: 0 auto;
+        font-size: 2rem;
+        color: white;
+        background: url("../images/background.png") fixed;
+        background-position: center; 
+        background-repeat: repeat-y;
+
+        header h1{
+            font-size: 80px;
+            text-align: center;
+        }
+    
+    }
+
+    /*navigation*/
+    .navbar{
+        font-family: @fontFamilySec;
+        background-color: @backgroundColor;
+        color:white;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        &:hover{
+            background-color: @primaryColor;
+            padding: 10px;
+        }
+        &:active{
+            background-color: red;
+        }
+    }
+    .navbar ul {
+        display: flex;
+        justify-content: space-around;
+        li{
+        padding: 10px 0px 10px 0;
+    }
+}
+.navbar2{
+    display:flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    background-color: rgba(66, 61, 61, 0.6);
+}
+
+ /*---MIXIN---*/
+.cart{
+    .navbar();
+    display: flex;
+    padding: 0 5% 0 5%;
+    flex-direction: row;
+    background-color: rgb(104, 97, 97, 0);
+    li{
+    font-size: 14px;
+    padding: 0 0 0 4%;
+    }
+}
+input[type=text]{
+    color:rgb(77, 64, 46);
+    font-family: @fontFamilySec;
+}
+input{
+    background-color: rgb(177, 177, 177);
+    width: 90%;
+    padding-left: 10px;
+    height: 30px;
+    border: 1px solid white;
+}
+.search-container{
+    margin: 10px;
+    padding-right: 2%;
+    button{
+        width: 5%;
+        height: 3.5%;
+        color: rgb(77, 64, 46);
+        position: absolute;
+        cursor: pointer;
+        border: none;
+    }
+    .text{
+        width: 200px;
+    }
+}
+/* MAIN CONTENTS */
+p, footer {
+    color: black;
+}
+
+p{
+    margin-left: 10px;
+}
+
+h1 {
+    font-size: 10rem;
+}
+h2{
+    text-align: center;
+    padding: 10px;
+}
+
+h1,h2,h3,h4 {
+    margin: 20px 0 0 10px;
+}
+
+.bestsellers{
+    margin: 0 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.picks{
+    .bestsellers();
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+}
+
+@media only screen and (max-width: 500px) {
+    
+    /* Start your code here: */
+    /*sidebar*/
+    .sidebar{ display: none;}
+    
+ 
+    /*main content*/
+    
+
+
+    figure {
+        align-self: center;
+        margin-bottom: 5px;
+        figure img{
+            max-width: 250px;
+        }
+    }
+
+    
+
+}
+
+@media screen and (min-width: 500px){
+
+        html {
+            background: url(../images/backgroundimg.jpg) fixed;
+            background-repeat:no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .container {
+            max-width: 800px; 
+            background-origin: border-box;
+            box-shadow:  0px 10px 50px black;
+            header{
+                font-weight: 800;
+            }
+            header h1{
+                font-size: 150px;
+            }
+        }
+
+        #background-img{
+            width: 100vw;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            display: block;
+        }
+
+        /*navigation*/
+
+        a :hover{
+                padding: 5px;
+            }
+
+        .search-container input[type=text]{
+            font-size: 14px;
+        }
+    
+        .search-container input{
+            width: 300px;
+        }
+
+
+        .navbar2 .search-container button{
+            width: 3%;
+            height: 34px;
+            // color: rgb(77, 64, 46);
+            // position: absolute;
+            // cursor: pointer;
+            // border: none;
+        }
+
+        
+        .search-container button:hover{
+                background-color: rgb(77, 64, 46);
+                color: white;
+                size: 100;
+                position: absolute;
+                cursor: pointer;
+                border: 1px solid white;
+            }
+
+        
+        /*sidebar*/
+        .sidebar{
+            .navbar();
+            max-width: 125px;
+            text-align: center;
+            box-shadow: -10px 10px rgb(0,0,0,0.6);
+            float: right;
+            position: fixed;
+            background-color: rgb(155, 120, 98);
+            bottom: 50%;
+            right: 0;
+            position: fixed;
+            z-index: 3000;
+            ul li{
+                padding: 10px;
+                font-size: 1.3rem;
+                align-content: center;
+            }
+        }
+                
+
+        
+        /*main content*/
+
+        
+    
+        .bestsellers{
+            margin-left: 5%;
+            display: grid;
+            grid-template-columns: repeat(4, .3fr);
+            grid-auto-rows: minmax(100px, auto);
+            row-gap: .5em;
+            column-gap: 1px; 
+            align-content: center;
+        }
+            /*--------MIXIN-------*/
+        .picks {
+            .bestsellers()
+        }
+
+        figure img{
+            max-width: 150px;
+        }
+        
+    }
