@@ -43,6 +43,9 @@ html, body, div, span, applet, object, iframe,
         border-collapse: collapse;
         border-spacing: 0;
     }
+
+        /* Start your code here: */
+
     html {
         font-size: 62.5%;
     }
@@ -51,7 +54,7 @@ html, body, div, span, applet, object, iframe,
         width: 100%;
       }
 
-      .main-content, footer {
+      .main-content {
         font-family: @fontFamilySec;
         text-align: left;
     }
@@ -76,7 +79,6 @@ html, body, div, span, applet, object, iframe,
             font-size: 80px;
             text-align: center;
         }
-    
     }
 
     /*navigation*/
@@ -86,12 +88,12 @@ html, body, div, span, applet, object, iframe,
         color:white;
     }
 
-    a {
+    .cart a, .navbar ul a {
         text-decoration: none;
         color: white;
         &:hover{
             background-color: @primaryColor;
-            padding: 10px;
+            padding: 6px 0px;
         }
         &:active{
             background-color: red;
@@ -151,52 +153,69 @@ input{
     }
 }
 /* MAIN CONTENTS */
-p, footer {
-    color: black;
-}
 
 p{
     margin-left: 10px;
-}
-
-h1 {
-    font-size: 10rem;
-}
-h2{
-    text-align: center;
-    padding: 10px;
+    color: black;
 }
 
 h1,h2,h3,h4 {
     margin: 20px 0 0 10px;
 }
 
+
+h1 {
+    font-size: 10rem;
+    margin: 20px 0 0 10px;
+}
+h2{
+    text-align: center;
+    padding: 10px;
+}
+
+
 .bestsellers{
     margin: 0 10px 0 10px;
     display: flex;
     flex-direction: column;
 }
-
+/*---MIXIN---*/
 .picks{
     .bestsellers();
 }
 
+/*---MIXIN---*/
 footer{
+    .main-content();
+    color: black;
     display: flex;
     justify-content: center;
     padding: 8px;
 }
 
-@media only screen and (max-width: 500px) {
+/*---BUTTON MIXIN----*/
+.buttons{
+    width: 80px;
+    height: 40px;
+    color: rgb(77, 64, 46);
+    // margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    &:hover{
+        background-color: darken(@backgroundColor, 10%);
+        color: white;
+    }
+}
+
+
+@media @max499 {
     
-    /* Start your code here: */
     /*sidebar*/
     .sidebar{ display: none;}
     
  
     /*main content*/
-    
-
 
     figure {
         align-self: center;
@@ -206,19 +225,15 @@ footer{
         }
     }
 
-    
-
 }
 
-@media screen and (min-width: 500px){
-
+@media @min500 {
         html {
             background: url(../images/backgroundimg.jpg) fixed;
             background-repeat:no-repeat;
             background-position: center;
             background-size: cover;
         }
-        
         .container {
             max-width: 800px; 
             background-origin: border-box;
@@ -240,9 +255,9 @@ footer{
 
         /*navigation*/
 
-        a :hover{
-                padding: 5px;
-            }
+        // a :hover{
+        //         padding: 5px;
+        //     }
 
         .search-container input[type=text]{
             font-size: 14px;
@@ -256,13 +271,8 @@ footer{
         .navbar2 .search-container button{
             width: 3%;
             height: 34px;
-            // color: rgb(77, 64, 46);
-            // position: absolute;
-            // cursor: pointer;
-            // border: none;
         }
 
-        
         .search-container button:hover{
                 background-color: rgb(77, 64, 46);
                 color: white;
@@ -272,8 +282,9 @@ footer{
                 border: 1px solid white;
             }
 
-        
         /*sidebar*/
+
+        /*----MIXIN----*/
         .sidebar{
             .navbar();
             max-width: 125px;
@@ -293,11 +304,7 @@ footer{
             }
         }
                 
-
-        
-        /*main content*/
-
-        
+        /*main content for desktop*/
     
         .bestsellers{
             margin-left: 5%;
@@ -316,5 +323,4 @@ footer{
         figure img{
             max-width: 150px;
         }
-        
     }
