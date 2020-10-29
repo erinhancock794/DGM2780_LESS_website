@@ -1,4 +1,5 @@
-@import "/LESS/variables.less";
+@import "variables.less";
+@import "mixins.less";
 
 html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -83,9 +84,7 @@ html, body, div, span, applet, object, iframe,
 
     /*navigation*/
     .navbar{
-        font-family: @font-stack-primary;
-        background-color: @backgroundColor;
-        color:white;
+        .font-style();
     }
 
     .cart a, .navbar ul a {
@@ -116,7 +115,7 @@ html, body, div, span, applet, object, iframe,
 
  /*---MIXIN---*/
 .cart{
-    .navbar();
+    .font-style();
     display: flex;
     padding: 0 5% 0 5%;
     flex-direction: row;
@@ -173,16 +172,12 @@ h2{
     padding: 10px;
 }
 
-
-.bestsellers{
-    margin: 0 10px 0 10px;
-    display: flex;
-    flex-direction: column;
-}
 /*---MIXIN---*/
-.picks{
-    .bestsellers();
+
+.bestsellers, .picks{
+    .book-grid-mobile();
 }
+
 
 /*---MIXIN---*/
 footer{
@@ -195,17 +190,7 @@ footer{
 
 /*---BUTTON MIXIN----*/
 .buttons{
-    width: 80px;
-    height: 40px;
-    color: rgb(77, 64, 46);
-    // margin: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    &:hover{
-        background-color: darken(@backgroundColor, 10%);
-        color: white;
-    }
+    .button-style();
 }
 
 
@@ -286,7 +271,7 @@ footer{
 
         /*----MIXIN----*/
         .sidebar{
-            .navbar();
+            .font-style();
             max-width: 125px;
             text-align: center;
             box-shadow: -10px 10px rgb(0,0,0,0.6);
@@ -305,21 +290,12 @@ footer{
         }
                 
         /*main content for desktop*/
-    
-        .bestsellers{
-            margin-left: 5%;
-            display: grid;
-            grid-template-columns: repeat(4, .3fr);
-            grid-auto-rows: minmax(100px, auto);
-            row-gap: .5em;
-            column-gap: 1px; 
-            align-content: center;
-        }
-            /*--------MIXIN-------*/
-        .picks {
-            .bestsellers()
-        }
 
+    /*--------MIXIN-------*/
+        .bestsellers, .picks{
+            .book-grid-desktop();
+        }
+      
         figure img{
             max-width: 150px;
         }

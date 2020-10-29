@@ -1,0 +1,36 @@
+
+.font-style {
+    font-family: @font-stack-secondary;
+    background-color: @backgroundColor;
+    color:white;
+}
+
+.book-grid-desktop{
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: repeat(4, .3fr);
+    grid-auto-rows: minmax(100px, auto);
+    row-gap: .5em;
+    column-gap: 1px; 
+    align-content: center;
+}
+
+.book-grid-mobile{
+    margin: 0 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-style{
+        width: 80px;
+        height: 40px;
+        color: rgb(77, 64, 46);
+        // margin: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        &:hover{
+            background-color: darken(@backgroundColor, 10%);
+            color: white;
+        }
+    }
